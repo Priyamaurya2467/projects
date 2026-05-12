@@ -58,7 +58,8 @@ async function userLogin(req,res){
 
     return res.status(202).json({
         message: "User logged in Successfully",
-        studentEmail
+        studentEmail,
+        token
     })
 
 

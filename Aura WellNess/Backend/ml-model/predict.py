@@ -1,5 +1,5 @@
 import joblib
-import numpy as np 
+import numpy as np
 
 
 model = joblib.load("burnout_model.pkl")
@@ -14,15 +14,14 @@ sleep_quality="Poor"
 encoded_quality = sleep_quality_encoder.transform([sleep_quality])[0]
 
 sample = np.array([[
-    sleep,
     study_hours,
+    sleep,
     academic_pressure_score,
     encoded_quality
 ]])
-
 
 prediction = model.predict(sample)
 
 burnout_result = burnout_encoder.inverse_transform(prediction)
 
-print("Burnout Risk:" , burnout_result[0])
+print("Burnout Risk",burnout_result[0])
