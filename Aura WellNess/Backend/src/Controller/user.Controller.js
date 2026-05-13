@@ -61,10 +61,6 @@ async function userLogin(req,res){
         studentEmail,
         token
     })
-
-
-    
-
 }
 
 module.exports = {userRegister,userLogin}

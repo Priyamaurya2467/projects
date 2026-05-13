@@ -1,9 +1,6 @@
 const mongoose = require('mongoose')
 
-const BurnoutRecordSchema = new mongoose.Schema({
-    
-
-    
+const BurnoutRecordSchema = new mongoose.Schema({ 
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
