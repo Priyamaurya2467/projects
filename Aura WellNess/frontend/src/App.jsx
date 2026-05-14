@@ -1,12 +1,22 @@
 import React from 'react'
-import { BrowserRouter, Link } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Dashboard from '../src/components/Pages/Dashboard/page'
+import LandingPage from '../src/components/Pages/Landing Page/page'
+
+import LoginPage from './components/Pages/LoginPage/Main'
+import RegisterPage from './components/Pages/Register Page/Main'
 
 function App() {
   return (
 
-    <Dashboard/>
+    <Routes>
+      <Route path='/' element={<LandingPage/>}/>
+      <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/register' element={<RegisterPage/>}/>
+      
+      
+    </Routes>
+  
     
   )
 }

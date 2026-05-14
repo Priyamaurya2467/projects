@@ -1,6 +1,9 @@
 import React from 'react'
+import { MdPsychology, MdVerifiedUser } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 
 function Hero() {
+  const navigate = useNavigate()
   return (
     <>
     <section className="relative flex min-h-[819px] flex-col items-center justify-between pt-12 pb-24 md:flex-row">
@@ -10,7 +13,7 @@ function Hero() {
     
     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1">
       <span className="material-symbols-outlined text-[18px] text-teal-300">
-        verified_user
+        <MdVerifiedUser/>
       </span>
 
       <span className="text-sm uppercase tracking-widest text-teal-300">
@@ -32,7 +35,7 @@ function Hero() {
 
     <div className="flex flex-wrap gap-4">
       
-      <button className="rounded-full bg-purple-400 px-8 py-4 text-sm font-bold text-black shadow-[0_0_20px_rgba(202,193,237,0.3)] transition-transform hover:scale-105 active:scale-95">
+      <button className="rounded-full bg-purple-400 px-8 py-4 text-sm font-bold text-black shadow-[0_0_20px_rgba(202,193,237,0.3)] transition-transform hover:scale-105 active:scale-95" onClick={()=>navigate('/register')}>
         Begin Your Journey
       </button>
 
@@ -60,7 +63,7 @@ function Hero() {
           className="material-symbols-outlined absolute text-[80px] text-purple-300"
           style={{ fontVariationSettings: "'FILL' 1" }}
         >
-          psychology
+          <MdPsychology/>
         </span>
       </div>
 

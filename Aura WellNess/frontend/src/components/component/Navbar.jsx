@@ -1,7 +1,10 @@
 import React from 'react'
+import LoginCard from '../Pages/LoginPage/LoginCard';
+import {useNavigate} from 'react-router-dom';
 
 function Navbar() {
     const NavLinks = ["Dashboard" , "Analytics ", "Mood Tracker" , "Wellness huB"];
+    const navigate = useNavigate()
   return (
     <>
 
@@ -19,9 +22,9 @@ function Navbar() {
                 </div>
             </div>
             <div className='flex items-center gap-4'>
-                <button className="text-sm font-medium text-gray-400 transition-colors hover:text-purple-400">Login</button>
+                <button className="text-sm font-medium text-gray-400 transition-colors hover:text-purple-400" onClick={()=>navigate("/login")}>Login</button>
 
-                <button className="rounded-full bg-purple-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95">Get Started</button>
+                <button className="rounded-full bg-purple-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95" onClick={()=>navigate('/register')}>Get Started</button>
             </div>
         </nav>
     </header>

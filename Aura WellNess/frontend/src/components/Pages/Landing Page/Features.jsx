@@ -1,5 +1,6 @@
 import React from 'react'
 import {MdInsights, MdSchedule, MdSelfImprovement} from 'react-icons/md'
+
 function Features() {
     const Features = [
         {
