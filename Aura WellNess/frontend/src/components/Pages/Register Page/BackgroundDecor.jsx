@@ -10,8 +10,8 @@ function BackgroundDetail() {
                  <MdSpa/>
              </span>
     </div>
-    <div class="fixed bottom-20 right-[10%] opacity-20 pointer-events-none animate-float [animation-delay:2s]">
-        <span class="material-symbols-outlined text-[100px] text-purple-400">
+    <div className="fixed bottom-20 right-[10%] opacity-20 pointer-events-none animate-float [animation-delay:2s]">
+        <span className="material-symbols-outlined text-[100px] text-purple-400">
             <MdPsychology/>
         </span>
     </div>

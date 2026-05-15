@@ -1,7 +1,9 @@
 import React from 'react'
 import { MdAccountCircle } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 
 function Navigation() {
+  const navigation = useNavigate()
   return (
     <>
 
@@ -37,7 +39,8 @@ function Navigation() {
     <a
       className="text-gray-700 hover:text-cyan-400
                  transition-colors duration-300"
-      href="#"
+      href="/burnout-analysis"
+      onClick={()=>navigation('/burnout-analysis')}
     >
       Analytics
     </a>
@@ -45,7 +48,7 @@ function Navigation() {
     <a
       className="text-gray-700 hover:text-cyan-400
                  transition-colors duration-300"
-      href="#"
+      href="/burnout-analysis"
     >
       Mood Tracker
     </a>

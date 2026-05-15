@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CircularGauge() {
+function CircularGauge({form}) {
   return (
     <>
 
@@ -27,7 +27,7 @@ function CircularGauge() {
                  flex flex-col items-center justify-center"
     >
       <span className="text-5xl font-bold text-emerald-300">
-        14%
+        {form.sleep}
       </span>
 
       <span className="text-sm text-gray-300 uppercase tracking-wider">

@@ -1,12 +1,12 @@
 import React from 'react'
 
-function DailyEmotional() {
+function DailyEmotional({form}) {
   return (
     <>
 
     <section className="mb-12">
 
-     <div className="rounded-[32px] p-8 flex flex-col md:flex-row items-center gap-8 backdrop-blur-xl bg-white/10 border border-white/10 shadow-2xl shadow-indigo-500/20">
+    <div className="flex flex-col gap-8 rounded-[32px] border border-white/10 bg-white/10 p-5 shadow-2xl shadow-indigo-500/20 backdrop-blur-xl sm:p-6 md:flex-row md:items-center md:p-8">
         <div className="w-full md:w-1/3">
           <img className="rounded-2xl w-full h-48 object-cover shadow-2xl"alt="Tranquil digital landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9LyfxVW0r8MADqlLgxr1gwGNuXWEX5xr6AAeJZ_KwyPV5t-s9rZ8qk1J0Wr9vgvPCoeTo9B09WnypoSSYOkQXPDp491H-wvid8wpPrDsJCI38v54sebMeQ03_ZjMs1fKukYgWjDoJe3wvfeTSD743SDTuFc0u7vDKmQ-yTyT2Qk8fof5o4z7lP_OCrnZfTu0AIGGy_FicjCcJAMV3BZ75_bpPCiT1Bw8Cb2rJ6Wy_tF-0gRGXBecABfO9glVNzw0bEUlhj6Mp90FV"/>
         </div>
@@ -17,7 +17,7 @@ function DailyEmotional() {
         </span>
 
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-             Emotional Stability: Optimal
+             Emotional Stability: {form.emotional}
         </h2>
 
         <p className="text-base text-gray-300 mb-6">

@@ -3,7 +3,7 @@ import Header from './Header'
 import OnboardingProgress from './OnboardingProgress'
 import OnboardingForm from './OnboardingForm'
 
-function Main() {
+function Main({formupdate , setFormupdate}) {
   return (
     <>
     <div className="bg-gray-50 text-gray-900 min-h-screen relative overflow-x-hidden font-sans">
@@ -14,8 +14,8 @@ function Main() {
 
          <main className="px-4 md:px-10 pb-16">
             <div className="max-w-[700px] mx-auto">
-                <OnboardingProgress/>
-                <OnboardingForm/>
+                
+                <OnboardingForm formupdate = {formupdate} setFormupdate = {setFormupdate} />
 
 
             </div>

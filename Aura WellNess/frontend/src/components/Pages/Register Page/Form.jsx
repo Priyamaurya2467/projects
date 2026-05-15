@@ -24,7 +24,7 @@ function Form() {
     localStorage.setItem("username", name);
 
     // Navigate to dashboard
-    navigate("/dashboard");
+    navigate("/student-entry");
   };
 
   return (

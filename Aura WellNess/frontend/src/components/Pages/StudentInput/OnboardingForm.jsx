@@ -1,29 +1,22 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-function OnboardingForm() {
-    const totalSteps = 7;
-    const [step , setStep] = useState(1);
+function OnboardingForm({formupdate , setFormupdate}) {
+    
     const [submitted , setSubmitted] = useState(false);
+    const navigate = useNavigate()
 
-    const [form , setForm] = useState({
-        sleep : 7,
-        study: 4,
-        stress: 2,
-        mood: 8,
-        focus: 45,
-        exam: 3,
-        emotional: '',
-        relax: '',
-    });
 
-    const progress = (step/totalSteps)*100;
+    const update = (key, value) => {
+  setFormupdate((prev) => ({
+    ...prev,
+    [key]: value,
+  }));
+};
 
-      const update = (key, value) => {
-    setForm((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
-  };
+    
+
+ 
 
   // ✅ FIXED
   const handleSubmit = (e) => {
@@ -44,22 +37,20 @@ function OnboardingForm() {
                 <p className='text-gray-500'>
                     Your MindShield AI profile has been created.
                 </p>
+                
+                             <button
+                                type='text'
+                                onClick={()=>navigate('/dashboard')}
+                                
+                                className='flex-1 py-3 px-2 bg-gray-200 rounded-xl'>
+                                    Go to Dashboard
+                            </button>
              </div>
              )}
     
             return(
                 <>
-                <div className='max-w-[700px] mx-auto p-6'>
-                    <div className='h-2 flex-1 bg-gray-200 rounded-full overflow-hidden'>
-                        <div className='h-full bg-emerald-500 transition-all duration-500'
-                        style={{width: `${progress}`}}/>
-
-                    </div>
-
-                    <span className='ml-4 text-sm text-gray-500'>
-                        Step {step}/{totalSteps}
-                    </span>
-                </div>
+               
 
                 <form onSubmit={handleSubmit} className='bg-white rounded-2xl shadow-lg p-8 space-y-8'>
 
@@ -67,15 +58,15 @@ function OnboardingForm() {
                     <div>
                         <div className='flex justify-between'>
                             <label>Sleep Hours</label>
-                            <span>{form.sleep}</span>
+                            <span>{formupdate.sleep}</span>
                         </div>
 
                         <input 
                             type="range"
                             min="0"
                             max="12"
-                            value={form.sleep}
-                            onChange={(e)=>update("Sleep", Number(e.target.value))}
+                            value={formupdate.sleep}
+                            onChange={(e)=>update("sleep", Number(e.target.value))}
                             className='w-full'
                         />
                     </div>
@@ -84,15 +75,15 @@ function OnboardingForm() {
                     <div>
                         <div className='flex justify-between'>
                             <label>Study Hours</label>
-                            <span>{form.study}</span>
+                            <span>{formupdate.study}</span>
                         </div>
 
                         <input 
                             type="range"
                             min="0"
                             max="12"
-                            value={form.study}
-                            onChange={(e)=>update("Study", Number(e.target.value))}
+                            value={formupdate.study}
+                            onChange={(e)=>update("study", Number(e.target.value))}
                             className='w-full'
                         />
                     </div>
@@ -102,17 +93,17 @@ function OnboardingForm() {
                         <div className='flex justify-between'>
                             <label>Stress Level</label>
                             <span>
-                                {form.stress <= 3
-                                ? "Low" : form.stress <= 7
+                                {formupdate.stress <= 3
+                                ? "Low" : formupdate.stress <= 7
                                 ? "Moderate" : "High"}{" "}
-                                ({form.stress})
+                                ({formupdate.stress})
                             </span>
                         </div>
 
                         <input type="range"
                                 min="1"
                                 max="10"
-                                value={form.stress}
+                                value={formupdate.stress}
                                 onChange={(e)=>update("stress",Number(e.target.value))}
                                 className='w-full'
                         
@@ -125,17 +116,17 @@ function OnboardingForm() {
                         <div className='flex justify-between'>
                             <label>Mood</label>
                             <span className='text-2xl'>
-                                {form.mood <= 4
-                                ? "😟" : form.stress <= 7
-                                ? "😐" : "😊"}
+                                {formupdate.mood <= 2
+                                ? "😢" : formupdate.mood <= 5
+                                ?"🙂" : formupdate.mood <= 8 ? "😊":"😄"}
                                 
                             </span>
                         </div>
 
                         <input type="range"
                                 min="1"
-                                max="10"
-                                value={form.mood}
+                                max="11"
+                                value={formupdate.mood}
                                 onChange={(e)=>update("mood",Number(e.target.value))}
                                 className='w-full'
                         
@@ -148,7 +139,7 @@ function OnboardingForm() {
                         <div className='flex justify-between'>
                             <label>Focus Duration</label>
                             <span className='text-2xl'>
-                                {form.focus}
+                                {formupdate.focus}
                             </span>
                         </div>
 
@@ -156,7 +147,7 @@ function OnboardingForm() {
                                 min="0"
                                 max="120"
                                 step="5"
-                                value={form.focus}
+                                value={formupdate.focus}
                                 onChange={(e)=>update("focus",Number(e.target.value))}
                                 className='w-full'   
                         />
@@ -168,15 +159,15 @@ function OnboardingForm() {
                         <div className='flex justify-between'>
                             <label>Exam Pressure</label>
                             <span className='text-2xl'>
-                                {form.exam}/10
+                                {formupdate.exam}/10
                             </span>
                         </div>
 
                         <input type="range"
                                 min="1"
                                 max="10"
-                                step="5"
-                                value={form.exam}
+                                step="1"
+                                value={formupdate.exam}
                                 onChange={(e)=>update("exam",Number(e.target.value))}
                                 className='w-full'   
                         />
@@ -185,7 +176,7 @@ function OnboardingForm() {
                     {/* Emotional */}
                     <textarea 
                         placeholder="Describe how you're feeling..."
-                        value={form.emotional}
+                        value={formupdate.emotional}
                         onChange={(e)=>update("emotional" , e.target.value)}
                         className='w-full p-4 border rounded-xl'
                     
@@ -194,7 +185,7 @@ function OnboardingForm() {
                       {/* Relaxation */}
                       <input 
                         placeholder='Relaxation methods (music,walking...)'
-                        value={form.relax}
+                        value={formupdate.relax}
                         onChange={(e)=>update("relax",e.target.value)}
                         className='w-full p-4 border rounded-xl'
                         />
@@ -203,14 +194,14 @@ function OnboardingForm() {
                           <div className='flex gap-3 pt-4'>
                             <button
                                 type='button'
-                                onClick={()=>setStep((s)=>Math.max(1,s-1))}
+                                onClick={()=>navigate('/')}
                                 className='flex-1 py-3 bg-gray-200 rounded-xl'>
                                     Back
                             </button>
 
                              <button
-                                type='button'
-                                onClick={()=>setStep((s)=>Math.min(1,s+1))}
+                                type='submit'
+                                
                                 className='flex-1 py-3 bg-gray-200 rounded-xl'>
                                     Next
                             </button>

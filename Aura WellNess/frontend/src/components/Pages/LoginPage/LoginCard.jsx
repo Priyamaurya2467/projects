@@ -137,7 +137,7 @@ function LoginCard() {
              hover:scale-[1.02] hover:shadow-cyan-500/40
              shadow-lg transition-all duration-300
              flex items-center justify-center space-x-2 group mt-4"
-      onClick={()=>navigate('/student-entry')}
+      onClick={()=>navigate('/dashboard')}
     >
       <span>Enter Sanctuary</span>
 
