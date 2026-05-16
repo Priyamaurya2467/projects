@@ -29,9 +29,10 @@ function Navigation() {
   <div className="hidden md:flex items-center gap-8">
 
     <a
-      className="text-cyan-400 font-bold border-b-2
-                 border-cyan-400 pb-1"
-      href="#"
+      className="text-gray-700 hover:text-cyan-400
+                 transition-colors duration-300"
+      href="/dashboard"
+      onClick={()=>navigation('/dashboard')}
     >
       Dashboard
     </a>
@@ -48,7 +49,8 @@ function Navigation() {
     <a
       className="text-gray-700 hover:text-cyan-400
                  transition-colors duration-300"
-      href="/burnout-analysis"
+      href="/mood-tracker"
+      onClick={()=>navigation('/mood-tracker')}
     >
       Mood Tracker
     </a>

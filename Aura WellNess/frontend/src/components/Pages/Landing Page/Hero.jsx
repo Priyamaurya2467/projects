@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdPsychology, MdVerifiedUser } from 'react-icons/md'
+import { MdPsychology, MdShowChart, MdVerifiedUser } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 
 function Hero() {
@@ -78,7 +78,7 @@ function Hero() {
           </span>
 
           <span className="material-symbols-outlined text-[16px] text-teal-300">
-            show_chart
+            <MdShowChart/>
           </span>
         </div>
 

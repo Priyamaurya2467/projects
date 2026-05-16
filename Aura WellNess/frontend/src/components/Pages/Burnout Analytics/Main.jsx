@@ -6,6 +6,13 @@ import AcademicLoadInsights from "./Academic.Load.Insights";
 import AIwellnessRecommendation from "./AI.wellness.recommendation";
 import Navigation from "../Dashboard/Navigation";
 
+import {
+  MdArchitecture,
+  MdMenuBook,
+  MdTerminal,
+} from "react-icons/md";
+
+
 function BurnoutAnalysis() {
   const [assessmentData, setAssessmentData] = useState({
     workload: 7,
@@ -15,53 +22,77 @@ function BurnoutAnalysis() {
     focustime: 6.2,
   });
 
+  const [subjects , setSubjects] = useState([
+        {
+              id: 1,
+              name: "Adv. Physics",
+              hours: 12,
+              stress: 85,
+              icon: <MdMenuBook />,
+          
+        },
+        {
+  
+          id: 2,
+          name: "Design Systems",
+          hours: 8,
+          stress: 45,
+          icon: <MdArchitecture />,
+  
+        },
+  
+        {
+              id: 3,
+              name: "Neural Networks",
+              hours: 15,
+              stress: 70,
+              icon: <MdTerminal />,
+        }
+    ])
+
   return (
     <>
       <Navigation />
 
-      {/* ✅ FIXED: Better responsive container spacing */}
-      {/* ✅ FIXED: Mobile padding reduced */}
-      {/* ✅ FIXED: Added responsive left margin */}
-      {/* ✅ FIXED: Prevent overflow on smaller screens */}
-      <main className="mx-auto min-h-screen max-w-7xl px-4 pb-10 pt-24 sm:px-6 md:ml-64 md:px-8 lg:px-10">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
 
-        {/* Header */}
-        <Header />
+  {/* LEFT SIDE */}
+  <div className="space-y-6 lg:col-span-8">
 
-        {/* ✅ FIXED: Removed wrong class -> lg: grid-cols-12 */}
-        {/* OLD:
-            lg: grid-cols-12
-        */}
+    {/* GRAPH CARD */}
+    <BurnoutStatusCard
+      assessmentData={assessmentData}
+    />
 
-        {/* ✅ FIXED: Proper responsive grid */}
-        {/* Mobile -> 1 column */}
-        {/* Tablet/Desktop -> 12 column layout */}
-        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-12">
+   
 
-          {/* Status Card */}
-          <BurnoutStatusCard
-            assessmentData={assessmentData}
-          />
+    {/* ACADEMIC INSIGHTS */}
+    <AcademicLoadInsights
+      assessmentData={assessmentData}
+      setAssessmentData={setAssessmentData}
+      subjects = {subjects}
+      setSubjects = {setSubjects}
+    />
 
-          {/* Assessment Form */}
-          <BurnoutAssessmentForm
-            assessmentData={assessmentData}
-            setAssessmentData={setAssessmentData}
-          />
+    {/* AI RECOMMENDATIONS */}
+    <AIwellnessRecommendation
+      assessmentData={assessmentData}
+      setAssessmentData={setAssessmentData}
+    />
+  </div>
 
-          {/* Academic Insights */}
-          <AcademicLoadInsights
-            assessmentData={assessmentData}
-            setAssessmentData={setAssessmentData}
-          />
+  {/* RIGHT SIDE */}
+  <div className="lg:col-span-4">
 
-          {/* AI Recommendation */}
-          <AIwellnessRecommendation
-            assessmentData={assessmentData}
-            setAssessmentData={setAssessmentData}
-          />
-        </div>
-      </main>
+    <BurnoutAssessmentForm
+      assessmentData={assessmentData}
+      setAssessmentData={setAssessmentData}
+    />
+    
+  </div>
+</div>
+
+      
     </>
   );
 }
