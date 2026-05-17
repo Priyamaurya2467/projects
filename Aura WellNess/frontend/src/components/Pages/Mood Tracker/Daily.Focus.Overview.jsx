@@ -1,4 +1,7 @@
-import React from 'react'
+import React from "react"
+import { MdBolt } from "react-icons/md";
+
+
 
 function DailyFocusOverview() {
     const cards = [
@@ -49,7 +52,11 @@ function DailyFocusOverview() {
                         fontVariationSettings:
                             "'FILL' 1",
                         }}>
-                        bolt
+
+                       <MdBolt/>
+
+                            
+                        
                     </span>
 
                 </header>

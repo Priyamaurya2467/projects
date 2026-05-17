@@ -73,7 +73,7 @@ Keep response under 120 words.
         setRecommendation(text);
 
       } catch (error) {
-        console.log(error);
+        console.log("GEMINI Error",error);
 
         setRecommendation(
           "Unable to generate recommendation right now."

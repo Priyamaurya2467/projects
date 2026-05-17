@@ -79,7 +79,7 @@ function BurnoutStatusCard({
       },
 
       {
-        x: 800,
+        x: 760,
         y:
           sleepQuality === "Deep"
             ? 70
@@ -125,7 +125,7 @@ function BurnoutStatusCard({
 
   const fillPath = `
     ${linePath}
-    L 800 200
+    L 760 200
     L 0 200
     Z
   `;
@@ -162,12 +162,13 @@ function BurnoutStatusCard({
       </div>
 
       {/* CHART */}
-      <div className="relative z-10 h-52 w-full sm:h-60">
+      <div className="relative z-10 h-64 w-full sm:h-72">
 
         <svg
           className="h-full w-full"
-          viewBox="0 0 800 200"
+          viewBox="-20 0 840 220"
           fill="none"
+          preserveAspectRatio="none"
         >
 
           {/* GRID */}

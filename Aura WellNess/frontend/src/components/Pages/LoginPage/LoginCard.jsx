@@ -92,6 +92,7 @@ function LoginCard() {
         <input
           type="email"
           placeholder="name@email.com"
+          required
           className="w-full pl-11 pr-4 py-3.5 rounded-xl outline-none
                  backdrop-blur-md bg-white/20 border border-white/20
                  text-white placeholder:text-gray-400
@@ -121,6 +122,7 @@ function LoginCard() {
         <input
           type="password"
           placeholder="••••••••"
+          required
           className="w-full pl-11 pr-4 py-3.5 rounded-xl outline-none
                  backdrop-blur-md bg-white/20 border border-white/20
                  text-white placeholder:text-gray-400

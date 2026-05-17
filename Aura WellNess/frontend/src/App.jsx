@@ -9,6 +9,7 @@ import StudentEntry from './components/Pages/StudentInput/Main'
 import BurnoutAnalysis from './components/Pages/Burnout Analytics/Main'
 
 import MoodTracker from './components/Pages/Mood Tracker/Main'
+import WellnessHub from './components/Pages/Wellness Hub/Main'
 function App() {
    const [form , setForm] = useState({
           sleep : 7,
@@ -30,6 +31,7 @@ function App() {
       <Route path='/student-entry' element={<StudentEntry formupdate = {form} setFormupdate = {setForm}/>}/>
       <Route path='/burnout-analysis' element={<BurnoutAnalysis/>}/>
       <Route path='/mood-tracker' element={<MoodTracker/>}></Route>
+      <Route path='/wellness-hub' element={<WellnessHub/>}></Route>
       
       
     </Routes>

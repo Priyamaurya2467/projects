@@ -58,7 +58,8 @@ function Navigation() {
     <a
       className="text-gray-700 hover:text-cyan-400
                  transition-colors duration-300"
-      href="#"
+      href="/wellness-hub"
+      onClick={()=>navigation('/wellness-hub')}
     >
       Wellness Hub
     </a>

@@ -73,6 +73,7 @@ function Form() {
 
                   <input
                     type="text"
+                    required
                     placeholder="Alex Rivers"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -96,6 +97,7 @@ function Form() {
 
                   <input
                     type="email"
+                    required
                     placeholder="alex.rivers@edu.com"
                     className="relative z-50 w-full bg-white/10 border border-white/20 rounded-xl py-4 px-5 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300"
                   />
@@ -118,6 +120,7 @@ function Form() {
                   <input
                     type="password"
                     placeholder="••••••••"
+                    required
                     className="relative z-50 w-full bg-white/10 border border-white/20 rounded-xl py-4 px-5 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300"
                   />
 
@@ -156,6 +159,7 @@ function Form() {
 
                   <input
                     type="text"
+                    required
                     placeholder="Stanford University"
                     className="relative z-50 w-full bg-white/10 border border-white/20 rounded-xl py-4 px-5 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300"
                   />
@@ -177,6 +181,7 @@ function Form() {
 
                   <input
                     type="text"
+                    required
                     placeholder="Cognitive Science"
                     className="relative z-50 w-full bg-white/10 border border-white/20 rounded-xl py-4 px-5 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300"
                   />

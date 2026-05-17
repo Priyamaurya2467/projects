@@ -13,13 +13,7 @@ function Navbar() {
             <div className="flex items-center gap-8">
                  <span className="font-headline-md text-headline-md font-bold tracking-tight text-[#cac1ed] dark:text-primary-fixed">MindShield AI </span>
 
-                <div className="gap-6 md:flex justify-center">
-                    {NavLinks.map((navComponent,index)=> (
-                        <a 
-                        key={index}
-                        href="#" className='font-body-md text-body-md text-[#c9c5ce]dark:text-[#c9c5ce] hover:text-[#cac1ed] transition-colors hover:bg-white/5 rounded-lg'>{navComponent}</a>
-                    ))}
-                </div>
+                
             </div>
             <div className='flex items-center gap-4'>
                 <button className="text-sm font-medium text-gray-400 transition-colors hover:text-purple-400" onClick={()=>navigate("/login")}>Login</button>

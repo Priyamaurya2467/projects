@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { FaBurn } from 'react-icons/fa'
 import { MdCalendarToday, MdDashboard, MdGroup, MdHub, MdMood, MdSmartToy } from 'react-icons/md'
 
 function SidebarNavigation() {
+    const navigate = useNavigate()
   return (
     <>
 
@@ -24,7 +26,8 @@ function SidebarNavigation() {
 
                 {/* ACTIVE */}
                 <a
-                href="#"
+                href="/dashboard"
+                onClick={()=> navigate('/dashboard')}
                 className="flex items-center gap-4 rounded-2xl bg-violet-500/20 px-4 py-3 font-semibold text-violet-300 shadow-lg shadow-violet-500/10 transition-all"
                 >
                 <span className="material-symbols-outlined">
@@ -37,7 +40,8 @@ function SidebarNavigation() {
 
                 {/* ITEM */}
                 <a
-                href="#"
+                href="/burnout-analysis"
+                onClick={()=>navigate('/burnout-analysis')}
                 className="flex items-center gap-4 rounded-2xl px-4 py-3 text-gray-400 transition-all duration-300 hover:translate-x-1 hover:bg-white/5 hover:text-violet-300"
                 >
                 <span className="material-symbols-outlined">
@@ -60,19 +64,11 @@ function SidebarNavigation() {
 
                 </a>
 
-                <a
-                href="#"
-                className="flex items-center gap-4 rounded-2xl px-4 py-3 text-gray-400 transition-all duration-300 hover:translate-x-1 hover:bg-white/5 hover:text-violet-300"
-                >
-                <span className="material-symbols-outlined">
-                    <MdSmartToy/>
-                </span>
-
-                <span>AI Assistant</span>
-                </a>
+               
 
                 <a
-                href="#"
+                href="/wellness-hub"
+                onClick={()=>navigate('/wellness-hub')}
                 className="flex items-center gap-4 rounded-2xl px-4 py-3 text-gray-400 transition-all duration-300 hover:translate-x-1 hover:bg-white/5 hover:text-violet-300"
                 >
                 <span className="material-symbols-outlined">

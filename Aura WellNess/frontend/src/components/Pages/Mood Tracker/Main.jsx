@@ -1,12 +1,12 @@
 import React from 'react'
-import SidebarNavigation from './Sidebar.Navigation'
+import SidebarNavigation from '../../component/Sidebar.Navigation'
 import TopNavigationBar from './Top.Navigation.Bar'
 import DailyFocusOverview from './Daily.Focus.Overview'
 import MoodCheckin from './Mood.Checkin'
 import BurnoutAnalysis from '../Burnout Analytics/Main'
 import Burnoutrisklevel from './Burnout.risk.level'
 import WellnessActivityFeed from './Wellness.Activity.Feed'
-import PulseAiFeedbackBubble from './Pulse.Ai.Feedback.Bubble'
+import PulseAiFeedbackBubble from '../../component/Pulse.Ai.Feedback.Bubble'
 
 function MoodTracker() {
   return (
