@@ -3,7 +3,7 @@ import SidebarNavigation from '../../component/Sidebar.Navigation'
 import TopNavigationBar from './Top.Navigation'
 import HeroSection from './HeroSection'
 import Meditation from './Meditation'
-import MusicSection from './MsuicSection'
+import MusicSection from './MusicSection'
 import StudentSupportArticle from './StudentSupportArticle'
 import PulseAiFeedbackBubble from '../../component/Pulse.Ai.Feedback.Bubble'
 

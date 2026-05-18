@@ -1,4 +1,5 @@
 import React from 'react'
+import { MdMenu, MdNotifications, MdSearch, MdSmartToy } from 'react-icons/md'
 
 function TopNavigationBar() {
   return (
@@ -13,7 +14,7 @@ function TopNavigationBar() {
    
     <div className="md:hidden">
       <span className="material-symbols-outlined text-primary text-3xl">
-        menu
+        <MdMenu/>
       </span>
     </div>
 
@@ -29,7 +30,7 @@ function TopNavigationBar() {
    
     <div className="relative hidden sm:block">
       <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">
-        search
+        <MdSearch/>
       </span>
 
       <input
@@ -43,11 +44,11 @@ function TopNavigationBar() {
     <div className="flex items-center gap-4">
 
       <span className="material-symbols-outlined cursor-pointer text-on-surface-variant hover:text-primary transition-colors">
-        notifications
+        <MdNotifications/>
       </span>
 
       <span className="material-symbols-outlined cursor-pointer text-on-surface-variant hover:text-primary transition-colors">
-        smart_toy
+        <MdSmartToy/>
       </span>
 
        {/* pROFILE */}
