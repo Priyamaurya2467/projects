@@ -80,7 +80,7 @@ function SidebarNavigation() {
                 </a>
 
                 <a
-                href="#"
+                href="/study-plan"
                 onClick={()=>navigate('/study-plan')}
                 className="flex items-center gap-4 rounded-2xl px-4 py-3 text-gray-400 transition-all duration-300 hover:translate-x-1 hover:bg-white/5 hover:text-violet-300"
                 >
@@ -92,7 +92,8 @@ function SidebarNavigation() {
                 </a>
 
                 <a
-                href="#"
+                href="/Community"
+                onClick={()=>navigate('/Community')}
                 className="flex items-center gap-4 rounded-2xl px-4 py-3 text-gray-400 transition-all duration-300 hover:translate-x-1 hover:bg-white/5 hover:text-violet-300"
                 >
                 <span className="material-symbols-outlined">
