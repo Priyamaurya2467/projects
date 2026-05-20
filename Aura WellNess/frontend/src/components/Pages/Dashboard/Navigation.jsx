@@ -67,7 +67,8 @@ function Navigation() {
     <a
       className="text-gray-700 hover:text-cyan-400
                  transition-colors duration-300"
-      href="#"
+      href="/study-plan"
+      onClick={()=>navigation('study-plan')}
     >
       Study Planner
     </a>
@@ -75,7 +76,8 @@ function Navigation() {
     <a
       className="text-gray-700 hover:text-cyan-400
                  transition-colors duration-300"
-      href="#"
+      href="/community"
+      onClick={()=>navigation('/community')}
     >
       Community
     </a>
@@ -95,6 +97,7 @@ function Navigation() {
 
     <button
       className="p-2 rounded-full hover:bg-white/20 transition-all"
+      onClick={()=>navigation('/user-page')}
     >
       <span className="material-symbols-outlined text-cyan-400">
         <MdAccountCircle/>

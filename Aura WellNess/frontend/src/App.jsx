@@ -7,11 +7,12 @@ import LoginPage from './components/Pages/LoginPage/Main'
 import RegisterPage from './components/Pages/Register Page/Main'
 import StudentEntry from './components/Pages/StudentInput/Main'
 import BurnoutAnalysis from './components/Pages/Burnout Analytics/Main'
-
+import CreateArticle from './components/Pages/CreateArticle/ArticleWriting'
 import MoodTracker from './components/Pages/Mood Tracker/Main'
 import WellnessHub from './components/Pages/Wellness Hub/Main'
 import StudyPlan from './components/Pages/Study PLanner/StudyPlan'
 import Community from './components/Pages/Community/Community'
+import UserPage from './components/Pages/UserPage/User.main'
 function App() {
    const [form , setForm] = useState({
           sleep : 7,
@@ -27,6 +28,7 @@ function App() {
 
     <Routes>
       <Route path='/' element={<LandingPage/>}/>
+      <Route path='/user-page' element= {<UserPage/>}/>
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/register' element={<RegisterPage/>}/>
       <Route path='/dashboard' element={<Dashboard form = {form} />}/>
@@ -36,6 +38,7 @@ function App() {
       <Route path='/wellness-hub' element={<WellnessHub/>}></Route>
       <Route path='/study-plan' element={<StudyPlan/>}></Route>
       <Route path='/Community' element={<Community/>}></Route>
+      <Route path='/create-article' element={<CreateArticle/>}></Route>
       
       
     </Routes>

@@ -1,7 +1,10 @@
 import React from 'react'
-import { MdOpenInNew } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
+import { MdCreate, MdOpenInNew } from 'react-icons/md'
 
 function StudentSupportArticle() {
+  const navigate = useNavigate()
+  
   const article = [
      {
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6kXG5tUAalg9p7ERzM8GWSCjTaNJu8kk9GdQ4iQdcNpQQb3L9ZrNEacp_hrpxztERmDkewrk3c7tIVw0FN1iJ0taSkxVSUt10F9vdFHGTObbn-LifDcpYRfF2U1zplMJe_oXECuOr_Qs0QFg0YfN3_mq0bcBFc3EcLbrMDYpD0deMN2Nm85bsRpSxYDQx5X2P9d_rqAJUa2P6iU4xarUkrcPw51KqDwkSKClXI8MDzxUfuge9KSbu6qmBJ1LEyeM1rK7t6WFD0Jgy",
@@ -43,6 +46,18 @@ function StudentSupportArticle() {
         Science-backed strategies for academic thriving.
       </p>
     </div>
+
+
+     <button
+       onClick={()=>navigate('/create-article')}
+      className=" flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">
+
+         
+
+          Create your own <MdCreate/>
+        </button>
+
+
 
     <a
       href="#"
