@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { MdCategory, MdFormatBold, MdFormatItalic, MdFormatListBulleted, MdFormatQuote, MdSell } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom';
 
 function EditorCanvas() {
-
-    function EditorCanvas(){
         const editorRef = useRef(null);
 
         const [title , setTitle] = useState('');
@@ -11,7 +10,15 @@ function EditorCanvas() {
         const [tags , setTags] = useState([]);
         const [tagInput , setTagInput] = useState('');
         const [category , setCategory] = useState('')     
-        
+        const [article , setArticle] = useState('');
+
+        const navigate = useNavigate();
+
+        const handleSubmit = () =>{
+            navigate('/wellness-hub' , {
+                state: {article}
+            })
+        }
         
         const formatText = (command,value = null) => {
             document.execCommand(command , false,value);
@@ -52,7 +59,7 @@ function EditorCanvas() {
          alert('Post Published Successfully');
 
          };
-        }
+        
 
   return (
     <>
@@ -64,6 +71,8 @@ function EditorCanvas() {
 
             {/* Title Input */}
             <input
+
+          
             type="text"
             placeholder="Entry Title..."
             className="w-full border-none bg-transparent text-4xl font-bold tracking-tight text-white placeholder:text-gray-500 focus:outline-none focus:ring-0 sm:text-5xl"
@@ -143,8 +152,11 @@ function EditorCanvas() {
 
             {/* Textarea */}
             <textarea
-            placeholder="Begin your mindful journey here..."
-            className="custom-scrollbar h-full min-h-[350px] w-full resize-none border-none bg-transparent text-base leading-relaxed text-gray-200 placeholder:text-gray-500 focus:outline-none focus:ring-0 sm:text-lg"
+                 value={article}
+                 onChange={(e)=>setArticle(e.target.value)}
+
+                 placeholder="Begin your mindful journey here..."
+                 className="custom-scrollbar h-full min-h-[350px] w-full resize-none border-none bg-transparent text-base leading-relaxed text-gray-200 placeholder:text-gray-500 focus:outline-none focus:ring-0 sm:text-lg"
             />
         </div>
 
@@ -158,7 +170,11 @@ function EditorCanvas() {
             </button>
 
             {/* Publish */}
-            <button className="rounded-full bg-gradient-to-r from-violet-500 to-purple-500 px-8 py-3 text-sm font-medium uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(139,92,246,0.35)] transition-all hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(139,92,246,0.5)]">
+            <button 
+
+            onClick={handleSubmit}
+            
+            className="rounded-full bg-gradient-to-r from-violet-500 to-purple-500 px-8 py-3 text-sm font-medium uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(139,92,246,0.35)] transition-all hover:scale-[1.02] hover:shadow-[0_15px_40px_rgba(139,92,246,0.5)]">
 
             Publish to Community
             </button>
@@ -170,5 +186,6 @@ function EditorCanvas() {
     </>
   )
 }
+
 
 export default EditorCanvas

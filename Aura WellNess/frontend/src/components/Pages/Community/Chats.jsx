@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdMic } from 'react-icons/md'
+import { MdAdd, MdMic } from 'react-icons/md'
 
 function Chats() {
   return (
@@ -112,7 +112,7 @@ function Chats() {
             <button
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/60 transition-colors hover:text-violet-300"
             >
-                <span className="material-symbols-outlined">add</span>
+                <span className="material-symbols-outlined"><MdAdd/></span>
             </button>
 
             

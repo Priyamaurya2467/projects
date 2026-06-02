@@ -20,6 +20,7 @@ function Stats() {
     <>
 
     <section className='mb-24 py-12'>
+
         <div className='grid grid-cols-1 divide-y divide-white/10 rounded-3xl border border-white/5 px-8 py-12 backdrop-blur-xl md:grid-cols-3 md:divide-y-0'>
             {statsDetail.map((statDesc, index)=>(
                 <div className='px-4 py-8 text-center md:py-0' key={index}>
@@ -30,6 +31,7 @@ function Stats() {
             ))}
             
         </div>
+
     </section>
     
     

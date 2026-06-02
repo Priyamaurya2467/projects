@@ -24,10 +24,12 @@ function Features() {
   return (
     <>
     <section className='py-24'>
+        
         <div className='mb-16 text-center'>
             <h2 className='mb-4 text-4xl font-bold text-white md:text-5xl'>Engineered for Human Thriving</h2>
             <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-400'>Our ecosystem combines advanced cognitive science with empathetic AI to create a friction-less academic life.</p>
         </div>
+
         <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
             {Features.map((content,index)=>(
                 <div className='group rounded-3xl border border-white/5 bg-white/5 p-10 backdrop-blur-xl transition-all hover:border-teal-300/30' key={index}>
@@ -39,8 +41,8 @@ function Features() {
                 </div>
 
             ))}
-        
         </div>
+
     </section>
     
     </>

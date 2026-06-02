@@ -1,9 +1,12 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , useLocation } from 'react-router-dom'
 import { MdCreate, MdOpenInNew } from 'react-icons/md'
 
 function StudentSupportArticle() {
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const newArticle = location.state?.newArticle
   
   const article = [
      {
@@ -26,6 +29,8 @@ function StudentSupportArticle() {
     },
 
   ]
+
+  const allArticle = newArticle ? [newArticle,...article] : article
   return (
     <>
     
@@ -74,7 +79,7 @@ function StudentSupportArticle() {
 
   <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
-      {article.map((aricleCard , index)=>(
+      {allArticle.map((articleCard , index)=>(
 
          <article className="group cursor-pointer" key={index}>
 
@@ -82,8 +87,8 @@ function StudentSupportArticle() {
             className="mb-4 overflow-hidden border aspect-video rounded-2xl border-white/10"
           >
             <img
-              src= {aricleCard.image}
-              alt="Digital minimalism"
+              src= {articleCard.image}
+              alt={articleCard.heading}
               className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
             />
           </div>
@@ -91,17 +96,17 @@ function StudentSupportArticle() {
           <span
             className="text-sm font-semibold tracking-wider uppercase text-emerald-400"
           >
-            {aricleCard.keyword}
+            {articleCard.keyword}
           </span>
 
           <h4
             className="mt-2 text-xl font-bold text-white transition-colors group-hover:text-cyan-400"
           >
-            {aricleCard.heading}
+            {articleCard.heading}
           </h4>
 
           <p className="mt-2 text-gray-400 line-clamp-2">
-            {aricleCard.decs}
+            {articleCard.decs}
           </p>
         </article>
 
