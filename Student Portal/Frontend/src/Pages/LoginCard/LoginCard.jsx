@@ -67,11 +67,11 @@ function LoginCard() {
             <div>
                 <div className='flex gap-15'>
                     <div>
-                        <button className='border-none rounded-2xl px-10 py-2 bg-white hover:bg-gradient-to-r from-pink-50 to-purple-50 border-t-2 text-gray-400 font-medium'>Google</button>
+                        <button className='border-none rounded-2xl px-10 py-2 bg-white hover:bg-gradient-to-r from-pink-50 to-purple-50 border-t-2 text-gray-400 font-medium'><a href="https://www.google.com/">Google</a></button>
                     </div>
 
                     <div>
-                        <button className='border-none rounded-2xl px-10 py-2 bg-white hover:bg-gradient-to-r from-pink-50 to-purple-50 border-t-2 text-gray-400 font-medium'>Github</button>
+                        <button className='border-none rounded-2xl px-10 py-2 bg-white hover:bg-gradient-to-r from-pink-50 to-purple-50 border-t-2 text-gray-400 font-medium'><a href="https://www.github.com/">Github</a></button>
                     </div>
                     </div>
                     
@@ -87,6 +87,7 @@ function LoginCard() {
 
 
      </div>
+    
     
 
     </>
