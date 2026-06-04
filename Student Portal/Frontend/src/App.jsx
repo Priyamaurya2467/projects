@@ -4,6 +4,7 @@ import LandingPage from '../src/Pages/LandingPage/Main'
 import LoginPage from '../src/Pages/LoginCard/Main'
 import RegistrationPage from '../src/Pages/RegistrationPage/Main'
 import DashboardPage from './Pages/DashBoard/Dashboard'
+import BlankPage from './Pages/DashBoard/BlankPage'
 function App() {
   return (
 
@@ -15,6 +16,7 @@ function App() {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/registration' element={<RegistrationPage/>}/>
         <Route path='/dashboard' element={<DashboardPage/>}/>
+        <Route path= '/no-result'element = {<BlankPage/>}/>
         
       </Routes>
     </BrowserRouter>
