@@ -5,6 +5,7 @@ import LoginPage from '../src/Pages/LoginCard/Main'
 import RegistrationPage from '../src/Pages/RegistrationPage/Main'
 import DashboardPage from './Pages/DashBoard/Dashboard'
 import BlankPage from './Pages/DashBoard/BlankPage'
+import OnBoarding from './Pages/Onboarding/OnBoarding'
 function App() {
   return (
 
@@ -17,7 +18,7 @@ function App() {
         <Route path='/registration' element={<RegistrationPage/>}/>
         <Route path='/dashboard' element={<DashboardPage/>}/>
         <Route path= '/no-result'element = {<BlankPage/>}/>
-        
+        <Route path='/onboardingPage' element = {<OnBoarding/>}/>
       </Routes>
     </BrowserRouter>
     

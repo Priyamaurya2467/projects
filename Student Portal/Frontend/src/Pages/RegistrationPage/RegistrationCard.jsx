@@ -4,8 +4,11 @@ import { FaEye } from 'react-icons/fa6'
 import { FiArrowRight, FiBookOpen } from 'react-icons/fi'
 import { HiEye } from 'react-icons/hi'
 import { MdBook, MdEmail, MdOutlineEmail, MdOutlineLock, MdOutlinePerson } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 
 function RegistrationCard() {
+    const navigate = useNavigate()
+    
   return (
    
 
@@ -92,7 +95,7 @@ function RegistrationCard() {
                     <label className='text-sm'>I agree to the <span className='text-purple-500 text-sm'>Terms of Service</span> and <span className='text-purple-500 font-light'>Privacy Policy</span></label>
                 </div>
 
-                <button className='flex justify-center items-center gap-2 bg-purple-500 text-white py-3 rounded-2xl hover:bg-purple-800 transition'>Create Account <FiArrowRight/></button>
+                <button className='flex justify-center items-center gap-2 bg-purple-500 text-white py-3 rounded-2xl hover:bg-purple-800 transition' onClick={()=>navigate('/onboardingPage')}>Create Account <FiArrowRight/></button>
 
         </form>
       </div>
@@ -127,7 +130,7 @@ function RegistrationCard() {
 
 
       <div className='flex items-center p-8'>
-        <p className='text-gray-500'>Don't have an account ? <span className='text-purple-400 font-semibold'>Sign Up</span></p>
+        <p className='text-gray-500'>Already have an Account ? <span className='text-purple-400 font-semibold'>Sign In</span></p>
       </div>
 
 
