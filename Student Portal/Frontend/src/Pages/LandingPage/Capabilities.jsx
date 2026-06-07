@@ -27,7 +27,7 @@ function Capabilities() {
 
 
         <div className='flex justify-center gap-5 py-8'>
-            <button className='flex justify-center items-center gap-2 px-4 py-3 rounded-4xl text-white font-semibold bg-purple-500 shadow-lg hover:scale-105 transition-all duration-300' onClick={()=>navigation('/dashboard')}>Explore Dashboard <FaArrowRight className='h-3'/></button>
+            <button className='flex justify-center items-center gap-2 px-4 py-3 rounded-4xl text-white font-semibold bg-purple-500 shadow-lg hover:scale-105 transition-all duration-300' onClick={()=>navigation('/registration')}>Explore Dashboard <FaArrowRight className='h-3'/></button>
             <button className='flex justify-center items-center gap-2 px-4 py-3 rounded-4xl font-semibold  shadow-lg hover:scale-105 transition-all duration-300'>Watch Demo <FaArrowRight className='h-3'/></button>
             
         </div>

@@ -26,10 +26,17 @@ function LoginCard() {
                 }
             )
             const data = await response.json();
+            console.log(data)
             if(response.ok){
                 console.log(data)
                 alert("Log In Successfully");
-                navigate('/dashboard fom')
+                navigate('/dashboard' , {
+                    state: {
+                        user : data.userP
+                    }
+                }
+                    
+                )
             }else{
                 alert(data.message || " User don't exist !")
             }

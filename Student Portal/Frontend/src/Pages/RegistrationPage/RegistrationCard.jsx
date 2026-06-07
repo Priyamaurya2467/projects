@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 function RegistrationCard() {
   const navigate = useNavigate();
+  
 
   const [formData, setFormData] = useState({
     name: "",
@@ -45,9 +46,9 @@ function RegistrationCard() {
       if (response.ok) {
         console.log(data);
         alert("Registration Successful!");
-        navigate("/onboarding" , {
+        navigate('/onboardingPage' , {
             state: {
-                user: data.user
+                user: data.userP
             }
         });
       } else {

@@ -1,6 +1,6 @@
 import React from "react";
 
-function WelcomeStep({currentStep,}) {
+function WelcomeStep({user}) {
   return (
     <>
 
@@ -21,7 +21,7 @@ function WelcomeStep({currentStep,}) {
         <div className='w-20 h-20 rounded-2xl bg-gradient-to-r from-purple-500 via-purple-400 to-purple-300 flex items-center justify-center '>
                 <p className="text-4xl">🚀</p>
         </div>
-        <h1 className="text-2xl font-stretch-expanded ml-6 font-semibold pt-5 tracking-wide text-center">Hello , Priya Maurya! 👋</h1>
+        <h1 className="text-2xl font-stretch-expanded ml-6 font-semibold pt-5 tracking-wide text-center">Hello , {user?.name || "Student"}! 👋</h1>
 
 
         <div className="text-center p-4 text-gray-600">

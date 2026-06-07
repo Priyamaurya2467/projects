@@ -6,10 +6,13 @@ import WelcomeStep from "../../Components/onboarding/WelcomeStep";
 import GoalsStep from "../../Components/onboarding/GoalStep";
 import ScheduleStep from "../../Components/onboarding/ScheduleStep";
 import NotificationStep from "../../Components/onboarding/Notifications";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function OnBoarding() {
+  const navigate = useNavigate()
   const [currentStep, setCurrentStep] = useState(1);
-
+  const location = useLocation()
+  const user = location.state?.user
   const [formData, setFormData] = useState({
   goals: [],
   weeklyHours: 20,
@@ -145,7 +148,7 @@ function OnBoarding() {
      
 
      
-      {currentStep === 1 && <WelcomeStep />}
+      {currentStep === 1 && <WelcomeStep user={user} />}
 
       {currentStep === 2 && (
         <GoalsStep
@@ -192,7 +195,7 @@ function OnBoarding() {
           </button>
         ) : (
           <button
-            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-green-600 text-white hover:bg-green-700"
+            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-green-600 text-white hover:bg-green-700" onSubmit={()=>na}
           >
             Complete Setup
           </button>
