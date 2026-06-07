@@ -11,13 +11,17 @@ function OnBoarding() {
   const [currentStep, setCurrentStep] = useState(1);
 
   const [formData, setFormData] = useState({
-    goals: [],
-    weeklyHours: 20,
-    studyTime: "",
-    timezone: "",
-    pushNotification: true,
-    emailUpdates: true,
-  });
+  goals: [],
+  weeklyHours: 20,
+  studyTime: "",
+  timezone: "",
+  pushNotification: true,
+  emailUpdates: true,
+
+  // Schedule step data
+  studyBest: "",
+  studyHours: 10,
+});
 
   const handleGoalSelect = (goalId) => {
     setFormData((prev) => ({
@@ -27,6 +31,13 @@ function OnBoarding() {
         : [...prev.goals, goalId],
     }));
   };
+
+  const handleStudyBestSelect = (id) => {
+  setFormData((prev) => ({
+    ...prev,
+    studyBest: id,
+  }));
+};
 
   const nextStep = () => {
     if (currentStep < 4) {
@@ -77,41 +88,63 @@ function OnBoarding() {
     },
   ];
 
+  const studyBest = [
+    {
+      id: "morning",
+      symbol: "🌅",
+      description: "Early Morning"
+    },
+
+    {
+      id: "afternoon",
+      symbol: "☀️",
+      description: "Afternoon"
+    },
+
+    {
+      id: "evening",
+      symbol: "🌃",
+      description: "Evening"
+    },
+
+     {
+      id: "night",
+      symbol: "🌙",
+      description: "Night Owl"
+    },
+
+    {
+      id: "alarm",
+      symbol: "⏰",
+      description: "Mixed Schedule"
+    },
+
+  ]
+
   return (
   <div className="min-h-screen bg-gradient-to-r from-pink-50 via-purple-50 to-pink-100 flex flex-col items-center p-8">
 
-    {/* Progress Section */}
-    <div className="w-full max-w-4xl mb-8">
-      <div className="flex justify-between mb-2">
-        <span className="font-medium">
-          Step {currentStep} of 4
-        </span>
+      {/* Progress Section */}
+      <div className="w-full max-w-4xl mb-8 p-4">
+        <div className="flex justify-between mb-2">
+          <span className="font-medium text-xs text-gray-600 ">
+            Step {currentStep} of 4
+          </span>
 
-        <span>{progress}%</span>
+          <span className="text-xs text-blue-600 font-semibold">{progress}%</span>
+        </div>
+
+        <div className="w-full h-2 bg-white/50 rounded-full">
+          <div
+            className="h-2 bg-gradient-to-r from-purple-100 via-purple-300 to-purple-500 rounded-full transition-all duration-300"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
       </div>
 
-      <div className="w-full h-3 bg-gray-200 rounded-full">
-        <div
-          className="h-full bg-purple-600 rounded-full transition-all duration-300"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
-    </div>
+     
 
-    {/* Greeting Section */}
-    <div className="text-center">
-      <h1 className="text-4xl font-bold">
-        Welcome to StudentSphere 👋
-      </h1>
-
-      <p className="mt-4 text-gray-600">
-        Let's personalize your learning experience.
-      </p>
-    </div>
-
-    {/* Main Card */}
-    <div className="w-full max-w-4xl rounded-3xl p-8 bg-white/80 backdrop-blur-lg shadow-xl border border-white/30">
-
+     
       {currentStep === 1 && <WelcomeStep />}
 
       {currentStep === 2 && (
@@ -123,11 +156,13 @@ function OnBoarding() {
       )}
 
       {currentStep === 3 && (
-        <ScheduleStep
-          formData={formData}
-          setFormData={setFormData}
-        />
-      )}
+  <ScheduleStep
+    studyBest={studyBest}
+    formData={formData}
+    setFormData={setFormData}
+    handleStudyBestSelect={handleStudyBestSelect}
+  />
+)}
 
       {currentStep === 4 && (
         <NotificationStep
@@ -135,12 +170,13 @@ function OnBoarding() {
           setFormData={setFormData}
         />
       )}
+    
 
-      <div className="flex justify-between mt-10">
+      <div className="flex justify-between mt-10 gap-3 ">
         <button
           onClick={prevStep}
           disabled={currentStep === 1}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-gray-200 disabled:opacity-50"
+          className="flex items-center justify-center  gap-2 px-5 py-3 rounded-full bg-gray-100 disabled:opacity-50 w-50 transition-all duration-300 hover:bg-gray-200 hover:-translate-y-2 hover:scale-105 shadow-md hover:shadow-xl"
         >
           <MdArrowBack />
           Previous
@@ -149,7 +185,7 @@ function OnBoarding() {
         {currentStep < 4 ? (
           <button
             onClick={nextStep}
-            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-purple-600 text-white hover:bg-purple-700"
+            className="flex items-center justify-center gap-2 px-5 py-3 w-50 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition-all duration-300 hover:bg-gray-200 hover:-translate-y-2 hover:scale-105 shadow-md hover:shadow-xl"
           >
             Next
             <MdArrowForward />
@@ -162,8 +198,10 @@ function OnBoarding() {
           </button>
         )}
       </div>
+
+      <p className="text-sm py-3 text-gray-400 hover:bg-black">Skip for now</p>
     </div>
-  </div>
+  
 );
 }
 

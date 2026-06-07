@@ -2,6 +2,8 @@ import React from 'react'
 import { FaBolt } from 'react-icons/fa'
 import RegistrationCard from './RegistrationCard'
 function Main() {
+   
+
   return (
     <>
 

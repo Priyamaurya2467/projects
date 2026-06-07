@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     studentCategory : {
         type : String,
         required: true,
-        enum: ["Gate Aspirant" , "Placement Seeker" , "Both GATE & Placement" , "General Learing"]
+        enum: ["gate" , "placement" , "both" , "general"]
     },
     password : {
         type: String,

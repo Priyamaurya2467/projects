@@ -1,12 +1,12 @@
 import React from 'react'
 import { FaCalendar } from 'react-icons/fa'
 import { FaArrowRight } from 'react-icons/fa6'
-function Student() {
+function Student({user}) {
   return (
     <>
 
     <div className='bg-white p-6 rounded-4xl '>
-        <h1 className='text-4xl'>Welcome back, Sarah!👋</h1>
+        <h1 className='text-4xl'>Welcome back, {user.name}👋</h1>
         <p className='text-sm text-gray-500 py-2 font-semibold'>You're making amazing progress. Keep up the momentum!</p>
 
         <div className='flex py-5 gap-2'>

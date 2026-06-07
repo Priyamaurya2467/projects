@@ -1,25 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FiArrowRight } from 'react-icons/fi'
-import { MdEmail, MdOutlineEmail, MdOutlineLock } from 'react-icons/md'
+import { MdOutlineEmail, MdOutlineLock } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 
 function LoginCard() {
-  return (
+    const navigate = useNavigate()
+    const [formData , setFormData] = useState({
+        email:"",
+        password:""
+    })
+
+    const handleLogin = async(e) => {
+        e.preventDefault();
+
+        try{
+            const response = await fetch(
+                "http://localhost:5000/api/auth/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type" : "application/json",
+                    },
+
+                    body: JSON.stringify(formData)
+                }
+            )
+            const data = await response.json();
+            if(response.ok){
+                console.log(data)
+                alert("Log In Successfully");
+                navigate('/dashboard fom')
+            }else{
+                alert(data.message || " User don't exist !")
+            }
+        }catch(err){
+            console.log(err)
+            alert("Something went wrong");
+        }
+    }
    
 
-    <>
+    return(
+        <>
 
 
      <div className='bg-gradient-to-r from-pink-100 to-purple-100 min-h-screen flex flex-col justify-start pt-6 items-center '>
      
       <div className='bg-white rounded-4xl px-20 py-5 shadow-lg max-w-md'>
-        <form action="" method='POST' className='flex flex-col gap-6'>
+        <form onSubmit={handleLogin}  className='flex flex-col gap-6'>
             <div className='flex flex-col gap-3'>
                         <label>Email Address</label>
                         <div className='flex items-center gap-3 border-2 rounded-2xl border-blue-600 px-6 py-2'>
                         <MdOutlineEmail className='h-5 w-5 text-gray-800'/>
                         <input 
                             type="email"
-                            name='email'
+                            value={formData.email}
+                            onChange={(e)=>
+                                setFormData({
+                                    ...formData,
+                                    email: e.target.value
+                                })
+                            }
                             className='flex-1 outline-none'
                             placeholder='you@example.com'
                             required 
@@ -36,7 +77,16 @@ function LoginCard() {
 
                 <div className='flex items-center gap-3 border-2 rounded-2xl border-blue-600 px-4 py-3'>
                     <MdOutlineLock className='h-5 w-5 text-gray-800'/>
-                    <input type="password" name='password' className='flex-1 outline-none ' required defaultValue="" />
+                    <input type="password" name='password'
+                        value={formData.password}
+                        onChange={(e)=>
+                            setFormData({
+                                ...formData,
+                                password: e.target.value
+                            })
+                        }
+                    
+                    className='flex-1 outline-none ' required defaultValue="" />
                 </div>
 
                 </div>
@@ -46,7 +96,7 @@ function LoginCard() {
                     <label>Remember me</label>
                 </div>
 
-                <button className='flex justify-center items-center gap-2 bg-purple-500 text-white py-3 rounded-2xl hover:bg-purple-800 transition'>Sign In <FiArrowRight/></button>
+                <button type='submit' className='flex justify-center items-center gap-2 bg-purple-500 text-white py-3 rounded-2xl hover:bg-purple-800 transition'>Sign In <FiArrowRight/></button>
 
         </form>
       </div>
