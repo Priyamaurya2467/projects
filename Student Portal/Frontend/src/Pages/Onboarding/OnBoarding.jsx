@@ -195,7 +195,7 @@ function OnBoarding() {
           </button>
         ) : (
           <button
-            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-green-600 text-white hover:bg-green-700" onSubmit={()=>na}
+            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-green-600 text-white hover:bg-green-700" onClick={()=>navigate('/dashboard')}
           >
             Complete Setup
           </button>

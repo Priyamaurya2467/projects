@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../../Components/NavBar'
 import Sidebar from './Sidebar'
 import Student from './Student'
@@ -10,6 +10,8 @@ import { useLocation } from 'react-router-dom'
 function Dashboard() {
   const location = useLocation();
   const user = location.state?.user
+
+
   return (
     <>
     <NavBar/>

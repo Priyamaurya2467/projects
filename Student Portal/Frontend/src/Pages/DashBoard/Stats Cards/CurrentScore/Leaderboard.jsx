@@ -1,51 +1,27 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { DashboardContext } from "../../DashboardContext";
 
 function Leaderboard() {
-    const students = [
-        {
-            rank: 1,
-            name: "Rahul",
-            score: 920,
-        },
+  const { dashboardData } = useContext(DashboardContext);
 
-        {
-            rank: 2,
-            name: "Priya",
-            score: 687,
-        },
-        {
-            rank: 3,
-            name: "Aman",
-            score: 650,
-        },
-        {
-            rank: 4,
-            name: "Sneha",
-            score: 610,
-        },
-    ]
   return (
-    <>
+    <div className="bg-white rounded-3xl p-6 shadow">
+      <h2 className="text-xl font-semibold mb-4">
+        Achievements
+      </h2>
 
-    <div className='bg-white rounded-3xl p-6 shadow-md'>
-        <h2 className='text-2xl font-semibold mb-5'>
-            🏆 Leaderboard
-        </h2>
-
-        <div className='space-y-4'>
-
-            {students.map((student) => (
-                <div className='flex justify-between border-b pb-3'>
-                    <span>#{student.rank} {student.name}</span>
-                    <span className='font-bold'>{student.score}</span>
-                </div>
-            ))}
-
-        </div>
+      <ul className="space-y-2">
+        {dashboardData.achievements?.map((achievement, index) => (
+          <li
+            key={index}
+            className="p-3 bg-purple-50 rounded-xl"
+          >
+            🏆 {achievement}
+          </li>
+        ))}
+      </ul>
     </div>
-    
-    </>
-  )
+  );
 }
 
 export default Leaderboard;
