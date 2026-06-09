@@ -1,8 +1,49 @@
 import React from "react";
 import SkillsProgress from "./SkillsProgress";
 import Roadmap from "./Roadmap";
+import { useLocation } from "react-router-dom";
 
 function PlacementReady() {
+  const defaultSkills = [
+  { name: "DSA", progress: 85 },
+  { name: "Aptitude", progress: 70 },
+  { name: "Resume Building", progress: 90 },
+  { name: "Communication", progress: 75 },
+  { name: "Mock Interviews", progress: 60 },
+];
+  const defaultRoadmap = [
+        {
+            title: "Complete Arrays & Strings",
+            status: "Completed",
+        },
+        {
+            title: "Master Linked Lists",
+            status: "Completed",
+        },
+        {
+            title: "Practice Trees",
+            status: "In Progress",
+        },
+        {
+            title: "Mock Interview Round 1",
+            status: "Pending",
+        },
+        {
+            title: "Resume Review",
+            status: "Pending",
+        }
+    ]
+  const location = useLocation();
+
+  const {
+    readiness = 0,
+    problemSolved = 0,
+    mockinterviews = 0,
+    resumeScore = 0,
+    recommendation = "No recommendations available.",
+    skills = defaultSkills,
+    roadmap = defaultRoadmap,
+  } = location.state || {}
   return (
     <div className="p-6 space-y-6">
       {/* Header */}
@@ -23,7 +64,7 @@ function PlacementReady() {
         </h2>
 
         <p className="text-6xl font-bold text-purple-600 mt-2">
-          78%
+          {readiness}%
         </p>
 
         <p className="text-green-600 mt-2">
@@ -39,7 +80,7 @@ function PlacementReady() {
           </h3>
 
           <p className="text-3xl font-bold">
-            320
+            {problemSolved}
           </p>
         </div>
 
@@ -49,7 +90,7 @@ function PlacementReady() {
           </h3>
 
           <p className="text-3xl font-bold">
-            8
+            {mockinterviews}
           </p>
         </div>
 
@@ -59,16 +100,16 @@ function PlacementReady() {
           </h3>
 
           <p className="text-3xl font-bold">
-            90%
+            {resumeScore}
           </p>
         </div>
       </div>
 
       {/* Skills Progress */}
-      <SkillsProgress />
+      <SkillsProgress skill = {skills} />
 
       {/* Roadmap */}
-      <Roadmap />
+      <Roadmap roadmaps = {roadmap}/>
 
       {/* AI Recommendation */}
       <div className="bg-purple-100 rounded-3xl p-6">
@@ -77,10 +118,7 @@ function PlacementReady() {
         </h2>
 
         <p className="text-gray-700">
-          Focus on Trees, Graphs, and Mock
-          Interviews to increase your placement
-          readiness from <strong>78%</strong> to{" "}
-          <strong>90%</strong>.
+          {recommendation}
         </p>
       </div>
     </div>

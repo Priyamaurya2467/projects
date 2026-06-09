@@ -1,14 +1,7 @@
 import React from 'react'
 
-function SkillsProgress() {
-    const skills = [
-        {name: "DSA" , progress: 85},
-        {name: "Aptitude" , progress: 70},
-        {name: "Resume Building" , progress: 90},
-        {name: "Communication" , progress: 75},
-        {name: "Mock Interviews" , progress: 60},
-
-    ]
+function SkillsProgress({skills = []}) {
+   
   return (
     <>
     <div className='bg-white rounded-3xl p-6 shadow-md'>

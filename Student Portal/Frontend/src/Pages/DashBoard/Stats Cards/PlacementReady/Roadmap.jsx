@@ -1,28 +1,7 @@
 import React from 'react'
 
-function Roadmap() {
-    const roadmap = [
-        {
-            title: "Complete Arrays & Strings",
-            status: "Completed",
-        },
-        {
-            title: "Master Linked Lists",
-            status: "Completed",
-        },
-        {
-            title: "Practice Trees",
-            status: "In Progress",
-        },
-        {
-            title: "Mock Interview Round 1",
-            status: "Pending",
-        },
-        {
-            title: "Resume Review",
-            status: "Pending",
-        }
-    ]
+function Roadmap({roadmap=[]}) {
+    
   return (
     <>
 
@@ -42,7 +21,8 @@ function Roadmap() {
                                 ? "text-yellow-500"
                                 : "text-red-500"
                             }`}
-                            >{step.status}</span>
+                            >{step.status
+                            }</span>
 
                         
                 </div>

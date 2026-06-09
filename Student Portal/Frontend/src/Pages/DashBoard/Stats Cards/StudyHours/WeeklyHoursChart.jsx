@@ -1,15 +1,7 @@
 import React from "react";
 
-export function WeeklyHoursChart(){
-    const weeklyData = [
-        {day: "Mon" , hours: 2},
-        {day: "Tue" , hours: 3},
-        {day: "Wed" , hours: 1.5},
-        {day: "Thu" , hours: 4},
-        {day: "Fri" , hours: 2.5},
-        {day: "Sat" , hours: 3},
-        {day: "Sun" , hours: 2.5},
-    ];
+export function WeeklyHoursChart({data=[]}){
+   
 
     return (
         <div className="bg-white rounded-3xl p-6 shadow">
@@ -19,7 +11,7 @@ export function WeeklyHoursChart(){
 
             <div className="space-y-4">
 
-                {weeklyData.map((item) => (
+                {data.map((item) => (
                     <div key={item.day}>
                         <div className="flex justify-between mb-1">
                             <span>{item.day}</span>

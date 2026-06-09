@@ -2,6 +2,7 @@ import React, {useEffect,useState} from 'react'
 import { HiOutlineFire } from 'react-icons/hi'
 import { MdLoop, MdOutlineBadge, MdTrendingUp} from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
+import StudyHours from './Stats Cards/StudyHours/StudyHours'
 
 
 function Cards() {
@@ -133,6 +134,40 @@ function Cards() {
         }
     ]
 
+    const studyData = {
+      todayHours: 3.5,
+      weeklyHours: 22,
+      monthlyHours: 87,
+
+      weeklyData :[
+        {day: "Mon" , hours: 2},
+        {day: "Tue" , hours: 2},
+        {day: "Wed" , hours: 2},
+        {day: "Thur" , hours: 2},
+        {day: "Fri" , hours: 2},
+        {day: "Sat" , hours: 2},
+        {day: "Sun" , hours: 2},
+        
+      ],
+
+      sessions: [
+        {
+          subject: "React",
+          duration: "2 hrs",
+          date: "2026-06-09",
+        },
+        {
+          subject: "React",
+          duration: "2 hrs",
+          date: "2026-06-09",
+        },
+        
+      ],
+
+      productivityInsights: 
+        "You study most effectively between 7 PM and 10 PM"
+    }
+
     
   return (
     <>
@@ -142,7 +177,7 @@ function Cards() {
 
             <div className='group flex flex-col gap-1 p-4 px-5 bg-white w-60 rounded-4xl shadow-sm transition-all duration-500 hover:shadow-[0_20px_40px_rgba(168,85,247,0.25)] hover:-translate-y-1' key={index} onClick={() => navigate(`/dashboard/${item.site}`, {
                 state: {
-                    activities,currentStreak,longestStreak
+                    activities,currentStreak,longestStreak,...studyData
                 }
             })}>
 
@@ -151,7 +186,7 @@ function Cards() {
                  </div>
 
                  <p className='text-m text-gray-600'>{item.heading}</p>
-                 <h1 className='text-black text-2xl font-semibold'>{item.daysLeft} days</h1>
+                 <h1 className='text-black text-2xl font-semibold'>{item.daysLeft} </h1>
                  <p className='text-sm font-light text-gray-400'>{item.caption}</p>
 
             </div>

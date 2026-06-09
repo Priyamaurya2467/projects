@@ -1,8 +1,21 @@
 import React from 'react'
 import { WeeklyHoursChart } from './WeeklyHoursChart'
 import SessionHistory from './SessionHistory'
+import { useLocation } from 'react-router-dom'
+
 
 function StudyHours() {
+
+    const location = useLocation();
+
+    const {
+        todayHours = 0,
+        WeeklyHours = 0,
+        monthlyHours = 0,
+        WeeklyData = [],
+        sessions = [],
+        productivityInsights = "No data available",
+    } = location.state || {};
   return (
     <>
     <div className='p-6 space-y-6'>
@@ -22,7 +35,7 @@ function StudyHours() {
                     Today
                 </h3>
 
-                <p className='text-4xl font-bold'>2.3 hrs</p>
+                <p className='text-4xl font-bold'>{todayHours} hrs</p>
             </div>
 
             <div className='bg-white rounded-3xl p-6 shadow'>
@@ -30,7 +43,7 @@ function StudyHours() {
                     This Week
                 </h3>
 
-                <p className='text-4xl font-bold'>18.5 hrs</p>
+                <p className='text-4xl font-bold'>{WeeklyHours} hrs</p>
             </div>
 
             <div className='bg-white rounded-3xl p-6 shadow'>
@@ -38,12 +51,12 @@ function StudyHours() {
                     Monthly Total
                 </h3>
 
-                <p className='text-4xl font-bold'>74 hrs</p>
+                <p className='text-4xl font-bold'>{monthlyHours} hrs</p>
             </div>
         </div>
 
-        <WeeklyHoursChart/>
-        <SessionHistory/>
+        <WeeklyHoursChart data = {WeeklyData}/>
+        <SessionHistory sessions = {sessions}/>
 
         <div className='bg-purple-100 rounded-3xl p-6'>
             <h2 className='font-semibold text-xl mb-2'>
@@ -51,9 +64,7 @@ function StudyHours() {
             </h2>
 
             <p>
-                You study most effectively between
-                7 PM and 10 PM. Keep this Schedule
-                for maximum productivity.
+                {productivityInsights}
             </p>
         </div>
 

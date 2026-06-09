@@ -1,29 +1,7 @@
 import React from 'react'
 
-export function SessionHistory() {
-    const sessions = [
-        {
-            subject: "Data Structures",
-            duration: "1 hr 30 min",
-            date: "Today",
-        },
-
-        {
-            subject: "DBMS",
-            duration: "45 min",
-            date: "Today",
-        },
-        {
-            subject: "Aptitude Practice",
-            duration: "30 min",
-            date: "Yesterday",
-        },
-        {
-            subject: "Operating Systems",
-            duration: "2 hrs",
-            date: "Yesterday",
-        },
-    ]
+export function SessionHistory({sessions}) {
+   
   return (
     <>
     <div className='bg-white rounded-3xl p-6 shadow'>
