@@ -143,6 +143,7 @@ function OnBoarding() {
             style={{ width: `${progress}%` }}
           />
         </div>
+        
       </div>
 
      

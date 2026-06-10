@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { HiOutlinePencil } from "react-icons/hi";
+import { FaBrain, FaPen } from "react-icons/fa6";
 import { HiMiniClipboardDocument } from "react-icons/hi2";
 import {
+  MdCheckCircle,
   MdOutlineArrowLeft,
+  MdOutlineError,
   MdPeople,
+  MdSyncLock,
   MdTerminal,
   MdThunderstorm,
   MdTrendingUp,
-  MdCheckCircle,
-  MdSyncLock,
-  MdOutlineError,
 } from "react-icons/md";
-import { FaBrain } from "react-icons/fa6";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function PlacementReadiness() {
+  const navigate = useNavigate();
   const location = useLocation();
 
   const {
@@ -26,11 +26,14 @@ function PlacementReadiness() {
     roadmap = [],
   } = location.state || {};
 
-
-  const [isEditing , setIsEditing] = useState(false);
-  const [redinessValue , setReadinessValue] = useState(readiness);
-  const [remainingValue , setRemainingValue] = useState(milestonesCompleted)
-  const [remainingValue , setReadinessValue] = useState(milestonesRemaining);
+  const [isEditing, setIsEditing] = useState(false);
+  const [readinessValue, setReadinessValue] = useState(readiness);
+  const [completedValue, setCompletedValue] = useState(
+    milestonesCompleted
+  );
+  const [remainingValue, setRemainingValue] = useState(
+    milestonesRemaining
+  );
 
   const iconMap = {
     terminal: <MdTerminal />,
@@ -46,88 +49,98 @@ function PlacementReadiness() {
     <div className="bg-gradient-to-r from-purple-50 to-purple-100 min-h-screen">
       {/* Navbar */}
       <div className="flex justify-between p-5 bg-white">
-        <div className="flex items-center gap-2">
+        <div
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={() => navigate("/dashboard")}
+        >
           <MdOutlineArrowLeft />
           Placement Readiness
         </div>
 
-        <button className="flex items-center gap-3 rounded-2xl p-2 cursor-pointer hover:bg-gray-50 border-none">
-          <HiOutlinePencil />
-          Edit Metrics
+        <button
+          onClick={() => setIsEditing(!isEditing)}
+          className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg"
+        >
+          <FaPen />
+          {isEditing ? "Save Changes" : "Edit Metrics"}
         </button>
       </div>
 
       {/* Readiness Card */}
       <div className="bg-white rounded-3xl m-4 p-3">
         <div className="flex flex-col text-center p-10">
-          <p className="text-5xl font-bold text-purple-600">
-            {isEditing ? (
-              <input
-                type="number"
-                value={redinessValue}
-                onChange={(e) => setReadinessValue(e.target.value)}
-                className="border rounded p-2 w-24 text-center"
-              />
-            ) : (
-              <p>{redinessValue}% </p>
-            
-            )}
-          </p>
+          {isEditing ? (
+            <input
+              type="number"
+              value={readinessValue}
+              onChange={(e) =>
+                setReadinessValue(Number(e.target.value))
+              }
+              className="border rounded p-2 w-24 text-center mx-auto"
+            />
+          ) : (
+            <h1 className="text-5xl font-bold text-purple-600">
+              {readinessValue}%
+            </h1>
+          )}
+
           <span>Readiness</span>
         </div>
 
+        {/* Edit Form */}
         {isEditing && (
-          <div className="bg-white rounded-3xl m-4 p-6 shadow">
+          <div className="bg-gray-50 rounded-3xl m-4 p-6 shadow">
             <h2 className="text-xl font-semibold mb-4">
               Edit Placement Metrics
             </h2>
 
-          <div className="grid md:grid-cols-3 gap-4">
-            <div>
-              <label className="block text-sm  mb-1">
-                Readiness %
-              </label>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm mb-1">
+                  Readiness %
+                </label>
 
-              <input 
-                type="number" 
-                value={redinessValue}
-                onChange={(e) => 
-                  setReadinessValue(e.target.value)
-                }
-                className="w-full border rounded p-2"
-                    />
-            </div>
+                <input
+                  type="number"
+                  value={readinessValue}
+                  onChange={(e) =>
+                    setReadinessValue(Number(e.target.value))
+                  }
+                  className="w-full border rounded p-2"
+                />
+              </div>
 
-            <div>
-              <label className="block text-sm mb-1">
-                Completed Milestones
-              </label>
-              <input 
-                type="number"
-                value={completedValue}
-                onChange={(e) =>
-                  setCompletedValue(e.target.value)
-                }   
-                className="w-full border rounded p-2"                 
-                    />
-            </div>
+              <div>
+                <label className="block text-sm mb-1">
+                  Completed Milestones
+                </label>
 
-            <div>
-              <label className="block text-sm mb-1">
-                Remaining Milestones
-              </label>
+                <input
+                  type="number"
+                  value={completedValue}
+                  onChange={(e) =>
+                    setCompletedValue(Number(e.target.value))
+                  }
+                  className="w-full border rounded p-2"
+                />
+              </div>
 
-              <input type="number"
-                value={remainingValue}
-                onChange={(e) => 
-                  setRemainingValue(e.target.value)
-                }
-                className="w-full border rounded p-2" />
+              <div>
+                <label className="block text-sm mb-1">
+                  Remaining Milestones
+                </label>
+
+                <input
+                  type="number"
+                  value={remainingValue}
+                  onChange={(e) =>
+                    setRemainingValue(Number(e.target.value))
+                  }
+                  className="w-full border rounded p-2"
+                />
+              </div>
             </div>
           </div>
-          
-          </div>
-
         )}
 
         <div className="text-center">
@@ -136,7 +149,7 @@ function PlacementReadiness() {
           </h2>
 
           <p className="text-green-500 font-semibold text-xs">
-            ✓ {milestonesCompleted} milestones completed
+            ✓ {completedValue} milestones completed
           </p>
         </div>
 
@@ -175,8 +188,7 @@ function PlacementReadiness() {
           <div className="h-2 bg-gradient-to-r from-purple-800 via-blue-900 to-green-700 rounded-2xl"></div>
 
           <span className="text-xs text-gray-600">
-            {milestonesCompleted} completed,{" "}
-            {milestonesRemaining} remaining
+            {completedValue} completed, {remainingValue} remaining
           </span>
         </div>
       </div>
