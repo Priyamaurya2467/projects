@@ -19,6 +19,6 @@ app.use("/api/auth",require('./routes/authRoutes'))
 app.get('/',(req,res)=>{
     res.send("API Running...")
 })
-
+ 
 
 module.exports=app
